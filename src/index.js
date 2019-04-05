@@ -1,7 +1,13 @@
 import $ from 'jquery';
 import './style';
 
+import config from './config';
+
+import Greeter from './greeter';
+import Floaters from './floaters';
+
 $(document).ready(() => {
-	$('#root').html('test');
-	setTimeout(() => $('#root').html('it works'), 2000);
+	Greeter(config, () => {
+		Floaters(config);
+	});
 });
