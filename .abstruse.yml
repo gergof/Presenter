@@ -1,0 +1,15 @@
+image: nodejs
+branches:
+  - master
+  - dev
+matrix:
+  - env SCRIPT=lint
+install:
+  - npm ci
+script:
+  - npm run $SCRIPT
+deploy:
+  - npm ci
+  - npm run build
+  - tar -czvf dist.tar.gz -C dist .
+  - /home/abstruse/deploy.sh "Presenter-$ABSTRUSE_BRANCH" "Presenter" dist.tar.gz

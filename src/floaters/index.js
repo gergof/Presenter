@@ -5,6 +5,7 @@ const floaters = ({ images, floaters }) => {
 	let floaterBox = $('<div class="floater__box"></div>');
 
 	floaters.forEach(floater => {
+		let outerContainer = $('<div class="floater__outer"></div>');
 		let container = $('<div class="floater"></div>');
 
 		let h1container = $('<div class="textContainer"></div>');
@@ -21,7 +22,8 @@ const floaters = ({ images, floaters }) => {
 		});
 		textContainer.appendTo(container);
 
-		container.appendTo(floaterBox);
+		container.appendTo(outerContainer);
+		outerContainer.appendTo(floaterBox);
 	});
 
 	floaterBox.appendTo('#root');
@@ -63,7 +65,7 @@ const floaters = ({ images, floaters }) => {
 			inertia: true,
 			modifiers: [
 				interact.modifiers.restrict({
-					restriction: 'parent',
+					restriction: '.floater__box',
 					endOnly: true,
 					elementRect: { top: 0, left: 0, bottom: 1, right: 1 }
 				})
