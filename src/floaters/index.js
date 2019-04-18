@@ -81,26 +81,25 @@ const floaters = ({ images, floaters }) => {
 				$(e.target).data('angle', e.angle + ($(e.target).data('angle') || 0));
 				$(e.target).data('scale', e.scale * ($(e.target).data('scale') || 1));
 			}
+		})
+		.on('tap', e => {
+			let target;
+			if ($(e.target).is('div.floater')) {
+				target = $(e.target);
+			} else if (
+				$(e.target)
+					.parent()
+					.is('div.floater')
+			) {
+				target = $(e.target).parent();
+			} else {
+				target = $(e.target)
+					.parent()
+					.parent();
+			}
+
+			toggleContainer(target);
 		});
-
-	interact('.floater').on('tap', e => {
-		let target;
-		if ($(e.target).is('div.floater')) {
-			target = $(e.target);
-		} else if (
-			$(e.target)
-				.parent()
-				.is('div.floater')
-		) {
-			target = $(e.target).parent();
-		} else {
-			target = $(e.target)
-				.parent()
-				.parent();
-		}
-
-		toggleContainer(target);
-	});
 };
 
 export default floaters;

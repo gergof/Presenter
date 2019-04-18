@@ -44,6 +44,9 @@ const interactions = () => {
 		},
 		ondrop: e => {
 			$(e.relatedTarget).addClass('game__image__dropped');
+			$(e.target)
+				.removeClass('game__text__dropzone__correct')
+				.removeClass('game__text__dropzone__incorrect');
 
 			$(e.target).data('dropped', $(e.relatedTarget).data('id'));
 
@@ -65,6 +68,11 @@ const interactions = () => {
 			$(e.target).removeClass('game__text__dropzone__active');
 		}
 	});
+
+	return () => {
+		interact('.game__image').unset();
+		interact('.game__text__dropzone').unset();
+	};
 };
 
 export default interactions;

@@ -13,11 +13,16 @@
 	box-shadow: 0 0 20px 10px #bdbdbd;
 	padding: 2% 10%;
 	text-align: center;
-	display: grid;
-	grid-template-columns: 45% 45%;
-	grid-column-gap: 10%;
 	z-index: 100;
+	overflow: hidden;
 	transition: 500ms ease-in-out;
+	animation: open 500ms ease-in-out;
+
+	&__openButton {
+		position: absolute;
+		right: 7%;
+		bottom: 7%;
+	}
 
 	&__close {
 		top: -40%;
@@ -27,6 +32,30 @@
 		transform: scale(2);
 		filter: blur(50px);
 		opacity: 0;
+	}
+
+	&__nextButton {
+		opacity: 0;
+		margin: 10px;
+		background: #18dd18;
+
+		&__visible {
+			opacity: 1;
+			animation: open 500ms ease-in-out;
+		}
+	}
+
+	&__inner {
+		flex: 1;
+		display: grid;
+		grid-template-columns: 45% 45%;
+		grid-column-gap: 10%;
+		transition: 500ms ease-in-out;
+		animation: slideIn 500ms ease-in-out;
+
+		&__leave {
+			transform: translateX(-200%);
+		}
 	}
 
 	&__image {
@@ -41,6 +70,14 @@
 		overflow: hidden;
 		background: #ffffff;
 		transition: width 300ms ease-in-out, height 300ms ease-in-out;
+
+		&__container {
+			display: flex;
+			flex-direction: column;
+			flex-wrap: wrap;
+			align-content: flex-start;
+			justify-content: flex-start;
+		}
 
 		&__outer {
 			position: relative;
@@ -105,6 +142,49 @@
 				font-size: 26px;
 				color: #212121;
 			}
+		}
+	}
+
+	&__congrats {
+		font-size: 24px;
+		color: #ffffff;
+		opacity: 0;
+
+		&__visible {
+			opacity: 1;
+			animation: congrats 1s ease-in-out;
+		}
+	}
+
+	@keyframes open {
+		0% {
+			opacity: 0;
+		}
+	}
+
+	@keyframes slideIn {
+		0% {
+			transform: translateX(200%);
+		}
+	}
+
+	@keyframes congrats {
+		0% {
+			opacity: 0;
+			transform: scale(0.1);
+		}
+		40% {
+			opacity: 1;
+			transform: scale(1.5);
+		}
+		50% {
+			transform: scale(0.8);
+		}
+		80% {
+			transform: scale(1.2);
+		}
+		100% {
+			transform: scale(1);
 		}
 	}
 }

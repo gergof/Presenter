@@ -62,7 +62,10 @@ const config = {
 		}
 	],
 	game: {
+		game: 'Game',
 		check: 'Check',
+		nextPage: 'Next page',
+		congrats: 'You finished all the questions!',
 		close: 'Close',
 		questions: [
 			{
@@ -76,6 +79,18 @@ const config = {
 			{
 				image: 'forest',
 				text: 'Forest image'
+			},
+			{
+				image: 'logo',
+				text: 'Logo once again'
+			},
+			{
+				image: 'school',
+				text: 'School image once again'
+			},
+			{
+				image: 'forest',
+				text: 'Forest image once again'
 			}
 		]
 	}

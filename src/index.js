@@ -9,8 +9,10 @@ import Game from './game';
 
 $(document).ready(() => {
 	Greeter(config, () => {
+		//render floaters
 		Floaters(config);
-		//test
+
+		//render game
 		Game(config);
 	});
 });
