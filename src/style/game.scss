@@ -35,11 +35,13 @@
 	}
 
 	&__nextButton {
+		display: none;
 		opacity: 0;
 		margin: 10px;
 		background: #18dd18;
 
 		&__visible {
+			display: inline-block;
 			opacity: 1;
 			animation: open 500ms ease-in-out;
 		}

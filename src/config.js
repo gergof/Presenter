@@ -11,7 +11,7 @@ const config = {
 		image: 'logo',
 		title: 'Presenter',
 		text:
-			'This is an awesome app to make interactive boards anywhere you wou would like. Just change src/config.js to customize it for your needs!',
+			'This is an awesome app to make interactive boards anywhere you wou would like. Just change src/config.js to customize it for your needs! If you are using the bundled version, then edit the userConfig variable in the HTML file.',
 		buttonText: "Let's start!"
 	},
 	floaters: [

@@ -8,11 +8,16 @@ import Floaters from './floaters';
 import Game from './game';
 
 $(document).ready(() => {
-	Greeter(config, () => {
+	let configToUse = config;
+	if (document.userConfig !== null) {
+		configToUse = document.userConfig;
+	}
+
+	Greeter(configToUse, () => {
 		//render floaters
-		Floaters(config);
+		Floaters(configToUse);
 
 		//render game
-		Game(config);
+		Game(configToUse);
 	});
 });
