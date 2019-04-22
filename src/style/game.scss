@@ -48,8 +48,8 @@
 	&__inner {
 		flex: 1;
 		display: grid;
-		grid-template-columns: 45% 45%;
-		grid-column-gap: 10%;
+		grid-template-columns: 48% 48%;
+		grid-column-gap: 4%;
 		transition: 500ms ease-in-out;
 		animation: slideIn 500ms ease-in-out;
 
@@ -135,7 +135,8 @@
 		}
 
 		&__text {
-			line-height: $droppedImageSize;
+			display: flex;
+			align-items: center;
 
 			& > p {
 				margin: 0;
